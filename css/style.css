@@ -3,3 +3,79 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+@media (max-width:647px){
+    body{
+        width: 100%;
+        height: 100%;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        background-color: #F4E240;
+        width: 100%;
+        height: max-content;
+    }
+
+    .img-container{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .text-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .input-container{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        padding-top: 10px;
+    }
+
+    .input{
+        background-color: #D9D9D9;
+        height: 1.5rem;
+        border: #D9D9D9 ;
+        color: black;
+    }
+
+    main{
+        width: 100%;
+        height: 50%;
+        padding-top: 30px;
+    }
+
+    .container_digimon{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .Safe_digimon{
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        height: 300px;
+        background-color: black;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .img_digimon{
+        padding-top: 20px;
+        width: 162px;
+        height: 170px;
+    }
+
+    .text_name{
+        color: #EAD9D9;
+        font-size: 40px;
+    }
+}
+
