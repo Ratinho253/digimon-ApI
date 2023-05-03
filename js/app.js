@@ -4,7 +4,7 @@ import '../js/router.js'
 
 import { getCardDigimon } from "../js/api.js"
 
-const aaaa = await getCardDigimon()
+const digimon = await getCardDigimon()
 
 console.log(getCardDigimon);
 
@@ -13,34 +13,35 @@ const carregarCardDigimon = (digimon) => {
     const divCard = document.getElementById('container_digimon')
     
 
-    const divCardDigimon = document.createElement('div')
+    const divCardDigimon = document.createElement('a')
     divCardDigimon.classList.add('Safe_digimon')
 
-    // const imgDigimon = document.createElement('img')
-    // imgDigimon.classList.add('img_digimon')
-    // imgDigimon.src = `${digimon.images} `
+    const imgDigimon = document.createElement('img')
+    imgDigimon.classList.add('img_digimon')
+    imgDigimon.src =  `url(${digimon.image})`
 
     const nameDigimon = document.createElement('p')
     nameDigimon.classList.add('text_name')
-    console.log(nameDigimon);
-    nameDigimon.textContent = digimon.name
-    console.log(nameDigimon);
+    nameDigimon.textContent =  `${digimon.name}`
 
-    divCardDigimon.append(nameDigimon)
+
+    divCardDigimon.append(imgDigimon,nameDigimon)
 
     divCard.append(divCardDigimon)
 
     return divCard
 }
 
-const carregarDigimon = () => {
+const carregarDigimon =  () => {
 
     const cardPrincipal = document.getElementById('container_digimon')
-    const abbb = aaaa.name.map(getCardDigimon)
 
-    cardPrincipal.replaceChildren(...abbb)
+    const card = digimon.map(carregarCardDigimon)
+
+    console.log(card);
+
+    cardPrincipal.replaceChild(...card)
+
 }
 
-
-carregarCardDigimon()
-
+carregarDigimon()
