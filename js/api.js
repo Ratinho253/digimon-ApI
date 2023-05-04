@@ -1,28 +1,27 @@
 'use strict'
 
-export const getCardDigimon = async(nome) => {
+export const getCardDigimon = async(name) => {
 
-    let name = nome
-
-    const url = `https://digimon-api.vercel.app/api/digimon/`
+    const url = `https://digimon-api.vercel.app/api/digimon/name/${name}`
 
     const response = await fetch(url)
     const data = await response.json()
-    console.log(data);
+    
 
     return data
 }
 
-//  export const getCardDigimon = async(name) => {
+ export const getCardDigimonFiltro = async(name) => {
 
-//     const url = `https://www.digi-api.com/api/v1/digimon/${name}`
+    const url = `https://www.digi-api.com/api/v1/digimon/${name}`
 
-//     const response = await fetch(url)
-//     const data = await response.json()
-//     console.log(data);
+    const response = await fetch(url)
+    const data = await response.json()
+    
 
-//     return data
-// }
+    return data
+}
+console.log(await getCardDigimonFiltro('Koromon'));
 
 
 
