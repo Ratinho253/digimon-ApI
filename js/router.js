@@ -1,28 +1,25 @@
-// 'use strict'
+'use strict'
 
-// import {carregarDigimon} from './app.js'
+const routes = {
+    '/': "/pages/card_digimon.js",
+    // '/': "/pages/filtro_digimon.js"
+}
 
-// const routes = {
-//     '/' : {html : '/pages/home.html',
-//             js : carregarDigimon },
-//     '/vermelho' : '/pages/vermelho.html',
-//     '/azul' : '/pages/azul.html',
-//     '/verde' : '/pages/green.html',
-//     '/tomato' : '/pages/tomato.html',
-// }
+const route = (event) => {
+    window.event.preventDefault()
+    window.history.pushState({}, "", window.event.target.href)
+    handleLocation()
+}
 
-// const route = async () => {
-//     window.event.preventDefault()
-//     window.history.pushState({}, "", window.event.target.href)
+const handleLocation = async () => {
+    const path = window.location.pathname
+    const route = routes[path]
+    const { page } = await import(route)
 
-//     const path = window.location.pathname
-    
-//     const response = await fetch(routes[path].html)
-//     const html = await response.text()
+    document.getElementById('root').replaceChildren(page())
+}
 
-//     document.getElementById('root').innerHTML = html
+window.onpopstate = handleLocation
+window.route = route
 
-//     routes[path].js()
-// }
-
-// window.route = route
+handleLocation()
