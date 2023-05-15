@@ -16,9 +16,7 @@ export const getfiltroDigimon = async(nome) => {
     const url = `https://digimon-api.vercel.app/api/digimon/name/${nome}`
 
     const response = await fetch(url)
-    const data = await response.json()
-    console.log(data);
-    
+    const data = await response.json()    
 
     return data
 }
@@ -33,7 +31,7 @@ export const getfiltroDigimon = async(nome) => {
 
     return data
 }
-console.log(await getCardDigimonFiltro('Koromon'));
+console.log(await getCardDigimon());
 
 
 
